@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.DisplayProductAdminController">
+    <children>
+        <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../pics/admin_Plan%20de%20travail%201.jpg" />
+            </image>
+        </ImageView>
+        <BarChart fx:id="Barchart" layoutX="955.0" layoutY="271.0" prefHeight="188.0" prefWidth="265.0">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" />
+            </yAxis>
+        </BarChart>
+        <TextField fx:id="search" layoutX="848.0" layoutY="52.0" prefHeight="64.0" prefWidth="424.0" promptText="search" />
+        <Button fx:id="addProduct" layoutX="609.0" layoutY="501.0" mnemonicParsing="false" onAction="#addProduct" text="Add" />
+        <Button fx:id="deleteProduct" layoutX="542.0" layoutY="501.0" mnemonicParsing="false" onAction="#deleteProduct" text="Delete" />
+        <Button fx:id="export" layoutX="438.0" layoutY="501.0" mnemonicParsing="false" text="export" />
+        <Button fx:id="sendmail" layoutX="336.0" layoutY="501.0" mnemonicParsing="false" text="send mail" />
+        <Label layoutX="609.0" layoutY="234.0" text="Product List" />
+        <TableView fx:id="tableview" layoutX="321.0" layoutY="269.0" prefHeight="200.0" prefWidth="597.0">
+            <columns>
+                <TableColumn fx:id="tcName_Product" onEditCommit="#update_Name" prefWidth="75.0" text="Name_Product" />
+                <TableColumn fx:id="tcQuantity_Total" onEditCommit="#update_Quantity_Total" prefWidth="66.0" text="Quantity_Total" />
+                <TableColumn fx:id="tcPrice_Product" onEditCommit="#update_Price_Product" prefWidth="41.0" text="Price_Product" />
+                <TableColumn fx:id="tcDescription_Product" onEditCommit="#update_Description_Product" prefWidth="100.3333740234375" text="Description_Product" />
+                <TableColumn fx:id="tcQuantity_Remaining" minWidth="0.0" onEditCommit="#update_Quantity_Remaining" prefWidth="136.66668701171875" text="Quantity_Remaining" />
+                <TableColumn fx:id="tcId_admin" onEditCommit="#update_Id_admin" prefWidth="89.0" text="Id_admin" />
+                <TableColumn fx:id="tcId_Association" onEditCommit="#update_Id_Association" prefWidth="87.0" text="Id_Association" />
+            </columns>
+        </TableView>
+        <Button fx:id="home" layoutY="262.0" mnemonicParsing="false" onAction="#toHome" opacity="0.0" prefHeight="56.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+        <Button layoutY="319.0" mnemonicParsing="false" onAction="#toProducts" opacity="0.09" prefHeight="56.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+        <Button fx:id="events" layoutY="377.0" mnemonicParsing="false" onAction="#toEvents" opacity="0.0" prefHeight="56.0" prefWidth="211.0" />
+        <Button fx:id="donations" layoutY="435.0" mnemonicParsing="false" onAction="#toDonations" opacity="0.0" prefHeight="56.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+        <Button fx:id="associations" layoutY="493.0" mnemonicParsing="false" onAction="#toAssociations" opacity="0.0" prefHeight="56.0" prefWidth="211.0" />
+        <Button fx:id="volunteering" layoutY="551.0" mnemonicParsing="false" onAction="#toVolunteering" opacity="0.0" prefHeight="56.0" prefWidth="211.0" />
+        <Button fx:id="actions" layoutY="609.0" mnemonicParsing="false" onAction="#toActions" opacity="0.0" prefHeight="56.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+        <Button fx:id="logout" layoutY="665.0" mnemonicParsing="false" onAction="#logout" opacity="0.0" prefHeight="54.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+
+    </children>
+</AnchorPane>

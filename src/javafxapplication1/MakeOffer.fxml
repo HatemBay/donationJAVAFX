@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.MakeOfferController">
+    <children>
+      
+        <TextField fx:id="type" layoutX="509.0" layoutY="59.0" prefHeight="31.0" prefWidth="315.0" promptText="Type" style="-fx-border-color: #10919d;" />
+        <TextField fx:id="contact" layoutX="506.0" layoutY="179.0" prefHeight="31.0" prefWidth="322.0" promptText="Contact" style="-fx-border-color: #10919d;" />
+        <TextField fx:id="state" layoutX="506.0" layoutY="284.0" prefHeight="31.0" prefWidth="322.0" promptText="State" style="-fx-border-color: #10919d;" />
+        <Button fx:id="submit" layoutX="618.0" layoutY="425.0" onAction="#submit" prefHeight="42.0" prefWidth="98.0" text="Submit" textFill="#10919d">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </Button>
+
+    </children>
+</AnchorPane>

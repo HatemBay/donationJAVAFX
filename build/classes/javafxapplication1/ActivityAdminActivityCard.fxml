@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="36.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="javafxapplication1.ActivityAdminActivityCardController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="1.0" prefHeight="69.0" prefWidth="573.0">
+         <children>
+            <Label fx:id="name1" layoutX="14.0" layoutY="30.0" text="Label1" />
+            <Button fx:id="update1" layoutX="438.0" layoutY="33.0" mnemonicParsing="false" onAction="#onClickUpdate1" prefHeight="25.0" prefWidth="55.0" text="Update" />
+            <Button fx:id="remove1" layoutX="502.0" layoutY="33.0" mnemonicParsing="false" onAction="#onClickRemove1" prefHeight="25.0" prefWidth="59.0" text="Remove" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

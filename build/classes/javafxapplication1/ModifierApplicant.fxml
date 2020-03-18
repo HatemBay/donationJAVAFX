@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="main" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.ModifierApplicantController">
+    <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pics/admin_Plan%20de%20travail%201.jpg" />
+         </image>
+      </ImageView>
+        <Label layoutX="428.0" layoutY="230.0" prefHeight="27.0" prefWidth="181.0" text="Date Disponibilité">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="427.0" layoutY="317.0" prefHeight="27.0" prefWidth="117.0" text="Location">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="location" layoutX="614.0" layoutY="314.0" prefHeight="34.0" prefWidth="325.0" />
+        <Label layoutX="427.0" layoutY="435.0" text="Description">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="description" layoutX="614.0" layoutY="409.0" prefHeight="78.0" prefWidth="325.0" />
+        <Label fx:id="error" layoutX="611.0" layoutY="650.0" prefHeight="27.0" prefWidth="128.0" />
+        <Button fx:id="add" layoutX="1052.0" layoutY="579.0" mnemonicParsing="false" onAction="#onsubmit" text="Modifier" />
+        <DatePicker fx:id="datedispo" layoutX="614.0" layoutY="231.0" />
+        <Button fx:id="home" layoutY="262.0" mnemonicParsing="false" onAction="#toHome" opacity="0.0" prefHeight="56.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+        <Button layoutY="319.0" mnemonicParsing="false" onAction="#toProducts" opacity="0.0" prefHeight="56.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+        <Button fx:id="events" layoutY="377.0" mnemonicParsing="false" onAction="#toEvents" opacity="0.0" prefHeight="56.0" prefWidth="211.0" />
+        <Button fx:id="donations" layoutY="435.0" mnemonicParsing="false" onAction="#toDonations" opacity="0.0" prefHeight="56.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+        <Button fx:id="associations" layoutY="493.0" mnemonicParsing="false" onAction="#toAssociations" opacity="0.0" prefHeight="56.0" prefWidth="211.0" />
+        <Button fx:id="volunteering" layoutY="551.0" mnemonicParsing="false" onAction="#toVolunteering" opacity="0.09" prefHeight="56.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+        <Button fx:id="actions" layoutY="609.0" mnemonicParsing="false" onAction="#toActions" opacity="0.0" prefHeight="56.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+        <Button fx:id="logout" layoutY="665.0" mnemonicParsing="false" onAction="#logout" opacity="0.0" prefHeight="54.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+
+    </children>
+</AnchorPane>

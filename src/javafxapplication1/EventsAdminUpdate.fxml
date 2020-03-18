@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.EventsAdminUpdate">
+    <children>
+        <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../pics/admin.jpg" />
+            </image>
+        </ImageView>
+        <Label layoutX="361.0" layoutY="257.0" text="Event Name : " />
+        <TextField fx:id="t1" layoutX="461.0" layoutY="248.0" prefHeight="26.0" prefWidth="180.0" />
+        <Label layoutX="709.0" layoutY="494.0" text="Location :" />
+        <Label layoutX="360.0" layoutY="328.0" text="Date event :" />
+        <Label layoutX="712.0" layoutY="352.0" prefHeight="18.0" prefWidth="54.0" text="Poster :" />
+        <DatePicker fx:id="dateTime" layoutX="461.0" layoutY="324.0" prefHeight="26.0" prefWidth="180.0" />
+        <Label layoutX="358.0" layoutY="458.0" text="Description :" />
+        <Label layoutX="356.0" layoutY="397.0" text="Equipement :" />
+        <TextField fx:id="t3" layoutX="461.0" layoutY="393.0" prefHeight="26.0" prefWidth="180.0" />
+        <Button fx:id="submit" layoutX="578.0" layoutY="652.0" mnemonicParsing="false" onAction="#onSubmit" text="Submit" />
+        <Label layoutX="709.0" layoutY="239.0" text="Event type :" />
+        <Button fx:id="close" layoutX="729.0" layoutY="652.0" mnemonicParsing="false" onAction="#onClose" prefHeight="26.0" prefWidth="58.0" text="Close" />
+        <BorderPane fx:id="locationPane" layoutX="787.0" layoutY="431.0" prefHeight="200.0" prefWidth="276.0" />
+        <ComboBox fx:id="category" layoutX="799.0" layoutY="238.0" prefHeight="28.0" prefWidth="193.0" />
+        <TextField fx:id="poster" layoutX="787.0" layoutY="346.0" prefHeight="26.0" prefWidth="169.0" />
+        <Button fx:id="posterPicker" layoutX="956.0" layoutY="345.0" mnemonicParsing="false" onAction="#onClickPosterPicker" text="pick" />
+        <TextArea fx:id="t4" layoutX="461.0" layoutY="458.0" prefHeight="173.0" prefWidth="180.0" />
+        <Label layoutX="298.0" layoutY="214.0" text="Update Event" />
+        <Button fx:id="home" layoutY="265.0" mnemonicParsing="false" onAction="#toHome" opacity="0.0" prefHeight="56.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+        <Button layoutY="322.0" mnemonicParsing="false" onAction="#toProducts" opacity="0.0" prefHeight="56.0" prefWidth="211.0" />
+        <Button fx:id="events" layoutY="380.0" mnemonicParsing="false" onAction="#toEvents" opacity="0.09" prefHeight="56.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+        <Button fx:id="donations" layoutY="438.0" mnemonicParsing="false" onAction="#toDonations" opacity="0.0" prefHeight="56.0" prefWidth="211.0" />
+        <Button fx:id="associations" layoutY="496.0" mnemonicParsing="false" onAction="#toAssociations" opacity="0.0" prefHeight="56.0" prefWidth="211.0" />
+        <Button fx:id="volunteering" layoutY="554.0" mnemonicParsing="false" onAction="#toVolunteering" opacity="0.0" prefHeight="56.0" prefWidth="211.0" />
+        <Button fx:id="actions" layoutY="612.0" mnemonicParsing="false" onAction="#toActions" opacity="0.0" prefHeight="56.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+        <Button fx:id="logout" layoutY="668.0" mnemonicParsing="false" onAction="#logout" opacity="0.0" prefHeight="54.0" prefWidth="211.0" style="-fx-background-color: #000000;" />
+
+
+    </children>
+
+</AnchorPane>

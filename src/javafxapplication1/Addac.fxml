@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="413.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.AddacController">
+   <children>
+      <Label layoutX="47.0" layoutY="126.0" text="Activity Name :" />
+      <TextField fx:id="t1" layoutX="149.0" layoutY="122.0" prefHeight="26.0" prefWidth="169.0" />
+      <Label layoutX="387.0" layoutY="128.0" text="Description:" />
+      <Label layoutX="47.0" layoutY="186.0" text="Duration  :" />
+      <TextField fx:id="t" layoutX="149.0" layoutY="182.0" prefHeight="26.0" prefWidth="169.0" />
+      <Button fx:id="b" layoutX="274.0" layoutY="371.0" mnemonicParsing="false" onAction="#OnSubmit" prefHeight="38.0" prefWidth="63.0" text="Submit" />
+      <Label layoutX="387.0" layoutY="67.0" text="Activity Type:" />
+      <ComboBox fx:id="category" layoutX="479.0" layoutY="63.0" prefHeight="25.0" prefWidth="169.0" />
+      <TextArea fx:id="yo" layoutX="479.0" layoutY="128.0" prefHeight="182.0" prefWidth="169.0" scrollLeft="1280.0" scrollTop="720.0" />
+      <TextField fx:id="ppp" layoutX="149.0" layoutY="62.0" prefHeight="26.0" prefWidth="169.0" />
+      <Label layoutX="47.0" layoutY="65.0" prefHeight="26.0" prefWidth="98.0" text="Event Name :" />
+   </children>
+</AnchorPane>

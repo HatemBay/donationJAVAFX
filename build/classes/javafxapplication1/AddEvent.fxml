@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="473.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.EventController">
+   <children>
+      <Label layoutX="70.0" layoutY="22.0" text="Event Name : " />
+      <TextField fx:id="t1" layoutX="170.0" layoutY="13.0" prefHeight="26.0" prefWidth="180.0" />
+      <Label layoutX="418.0" layoutY="259.0" text="Location :" />
+      <Label layoutX="69.0" layoutY="93.0" text="Date event :" />
+      <Label layoutX="421.0" layoutY="117.0" prefHeight="18.0" prefWidth="54.0" text="Poster :" />
+      <DatePicker fx:id="dateTime" layoutX="170.0" layoutY="89.0" prefHeight="26.0" prefWidth="180.0" />
+      <Label layoutX="67.0" layoutY="223.0" text="Description :" />
+      <Label layoutX="65.0" layoutY="162.0" text="Equipement :" />
+      <TextField fx:id="t3" layoutX="170.0" layoutY="158.0" prefHeight="26.0" prefWidth="180.0" />
+      <Button fx:id="submit" layoutX="419.0" layoutY="423.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="32.0" prefWidth="58.0" text="Submit" />
+      <Label layoutX="421.0" layoutY="22.0" text="Event type :" />
+      <Button fx:id="close" layoutX="489.0" layoutY="423.0" mnemonicParsing="false" onAction="#onClose" prefHeight="32.0" prefWidth="58.0" text="Close" />
+      <BorderPane fx:id="locationPane" layoutX="496.0" layoutY="196.0" prefHeight="200.0" prefWidth="276.0" />
+      <ComboBox fx:id="category" layoutX="500.0" layoutY="17.0" prefHeight="28.0" prefWidth="219.0" />
+      <TextField fx:id="poster" layoutX="496.0" layoutY="111.0" prefHeight="26.0" prefWidth="169.0" />
+      <Button fx:id="posterPicker" layoutX="665.0" layoutY="110.0" mnemonicParsing="false" onAction="#onClickPosterPicker" text="pick" />
+      <TextArea fx:id="t4" layoutX="170.0" layoutY="223.0" prefHeight="173.0" prefWidth="180.0" />
+   </children>
+</AnchorPane>
