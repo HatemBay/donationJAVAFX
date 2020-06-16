@@ -5,10 +5,10 @@
  */
 package javafxapplication1;
 
+import com.donation.Entite.Fos_user;
 import static com.donation.Entite.SmsSender.ACCOUNT_SID;
 import static com.donation.Entite.SmsSender.AUTH_TOKEN;
-import com.donation.Entite.Users;
-import com.donation.Service.ServiceUsers;
+import com.donation.Service.ServiceFos;
 import com.donation.Utils.DataBase;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
@@ -42,7 +42,7 @@ import javafx.stage.Stage;
  */
 public class UserSignUpController implements Initializable {
 
-    ServiceUsers serUsers = new ServiceUsers();
+    ServiceFos serUsers = new ServiceFos();
     private final Connection con;
     private Statement ste;
 
@@ -115,6 +115,7 @@ public class UserSignUpController implements Initializable {
     private void userSignIn(ActionEvent event) throws IOException, SQLException {
         String fn = USUFirstName.getText();
         String ln = USULastName.getText();
+        String username = fn + " " + ln;
         String email = USUEmail.getText();
         String pass = USUPassword.getText();
         String passc = USUPasswordC.getText();
@@ -222,7 +223,7 @@ public class UserSignUpController implements Initializable {
 
 
             /* ------> all conditions are set: adding user to database*/
-            Users user = new Users(email, pass, fn, ln, telint, address, blood);
+            Fos_user user = new Fos_user(username, email, pass, telint, address, blood);
             serUsers.add(user);
              Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 

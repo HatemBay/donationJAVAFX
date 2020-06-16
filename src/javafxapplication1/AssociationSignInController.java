@@ -7,7 +7,7 @@ package javafxapplication1;
 
 import com.donation.Service.ServiceAssociation;
 import com.donation.Service.ServiceAssociation2;
-import com.donation.Service.ServiceUsers;
+import com.donation.Service.ServiceFos;
 import com.donation.Utils.DataBase;
 import java.io.IOException;
 import java.net.URL;
@@ -45,7 +45,7 @@ import javafx.stage.Stage;
  */
 public class AssociationSignInController implements Initializable {
     ServiceAssociation serAssociation = new ServiceAssociation();
-    ServiceUsers serUsers = new ServiceUsers();
+    ServiceFos serUsers = new ServiceFos();
     private final Connection con;
     private Statement ste;
     

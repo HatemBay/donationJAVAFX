@@ -5,8 +5,6 @@
  */
 package com.donation.Entite;
 
-import java.sql.Date;
-
 /**
  *
  * @author Tarek

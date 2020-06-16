@@ -33,7 +33,7 @@ public class ServiceAssociation implements IServiceAssociation {
     public void addAssociation(Association a) throws SQLException {
         
          Statement stm = cnx.createStatement();
-        String query = "INSERT INTO `association` (`Id_Association`, `Nom_Association`, `Objectif_Association`, `Email_Association`, `Password_Association`, `Address_Association`, `Type_Association`, `Description_Association`, `Logo_Association`)"
+        String query = "INSERT INTO `association` (`Id_Association`, `Nom_Association`, `Objectif_Association`, `Email_Association`, `Password_Association`, `Address_Association`, `Type_Association`, `Description_Association`, `image_name`)"
                 + "     VALUES (NULL, '"+a.getNom_Association()+"', '"+a.getObjectif_Association()+"', '"+a.getEmail_Association()+"', '"+a.getPassword_Association()+"', '"+a.getAddress_Association()+"', '"+a.getType_Association()+"', '"+a.getDescription_Association()+"', '"+a.getLogo_Association()+"')";
          stm.executeUpdate(query);     
          System.out.println("Ajoutee");
@@ -225,7 +225,7 @@ public class ServiceAssociation implements IServiceAssociation {
                     currentAssociation.setDescription_Association(rs.getString("Description_Association"));
                     currentAssociation.setNom_Association(rs.getString("Nom_Association"));
                     currentAssociation.setObjectif_Association(rs.getString("Objectif_Association"));
-                    currentAssociation.setLogo_Association(rs.getString("Logo_Association"));
+                    currentAssociation.setLogo_Association(rs.getString("image_name"));
                     currentAssociation.setDate_inscrit(rs.getTimestamp("Date_inscrit"));
                 }
          }   
@@ -245,7 +245,7 @@ public class ServiceAssociation implements IServiceAssociation {
                     currentAssociation.setDescription_Association(rs.getString("Description_Association"));
                     currentAssociation.setNom_Association(rs.getString("Nom_Association"));
                     currentAssociation.setObjectif_Association(rs.getString("Objectif_Association"));
-                    currentAssociation.setLogo_Association(rs.getString("Logo_Association"));
+                    currentAssociation.setLogo_Association(rs.getString("image_name"));
                     currentAssociation.setDate_inscrit(rs.getTimestamp("Date_inscrit"));
                 }
          }   

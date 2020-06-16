@@ -6,7 +6,7 @@
 package javafxapplication1;
 
 import com.donation.Service.ServiceAssociation;
-import com.donation.Service.ServiceUsers;
+import com.donation.Service.ServiceFos;
 import com.donation.Utils.DataBase;
 import java.io.IOException;
 import java.net.URL;
@@ -37,7 +37,7 @@ public class NewPassAssocController implements Initializable {
     @FXML
     private PasswordField confirm;
     
-    ServiceUsers serUsers = new ServiceUsers();
+    ServiceFos serUsers = new ServiceFos();
     ServiceAssociation SA = new ServiceAssociation();
     private final Connection con;
     private Statement ste;
@@ -92,7 +92,7 @@ public class NewPassAssocController implements Initializable {
                 return;
             }else{
             con.createStatement().executeUpdate("UPDATE `donation`.`association2` SET `Password_Association` = '" + newPass.getText() + "' and redeem = NULL WHERE `Id_Association` = " + 
-                    ServiceUsers.currentUser.getId_user() + ";");
+                    ServiceFos.currentUser.getId() + ";");
             
         
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("Home.fxml"));

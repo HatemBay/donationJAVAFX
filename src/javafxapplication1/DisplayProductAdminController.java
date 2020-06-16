@@ -12,7 +12,7 @@ import com.donation.IService.CommandLineService;
 import com.donation.IService.CommandService;
 import com.donation.IService.ProductService;
 import com.itextpdf.text.DocumentException;
-import com.stripe.Stripe;
+//import com.stripe.Stripe;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -276,7 +276,7 @@ Node root1=this.Barchart;
 
   }}
    void stripe(){
-   Stripe.apiKey = "sk_test_4eC39HqLyjWDarjtT1zdp7dc";
+   //Stripe.apiKey = "sk_test_4eC39HqLyjWDarjtT1zdp7dc";
 
 Map<String, Object> card = new HashMap<>();
 card.put("number", "4242424242424242");

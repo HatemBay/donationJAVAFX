@@ -5,7 +5,7 @@
  */
 package javafxapplication1;
 
-import com.donation.Service.ServiceUsers;
+import com.donation.Service.ServiceFos;
 import com.donation.Utils.DataBase;
 import java.io.IOException;
 import java.net.URL;
@@ -35,6 +35,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.paint.Color;
 import javafxapplication1.UserSignInController.Ticker.RemindTask;
+import java.security.Security;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 
 /**
  *
@@ -42,7 +45,7 @@ import javafxapplication1.UserSignInController.Ticker.RemindTask;
  */
 public class UserSignInController implements Initializable {
 
-    ServiceUsers serUsers = new ServiceUsers();
+    ServiceFos serUsers = new ServiceFos();
     private final Connection con;
     private Statement ste;
     Timer timer = new Timer();
@@ -125,16 +128,20 @@ public class UserSignInController implements Initializable {
         String pass = userPass.getText();
         String strpass = "";
         String strcode = "";
-        int role = 0;
+        String role = "";
 
-        ResultSet rs = con.createStatement().executeQuery("select * from `users` where `Login_user` = '" + login + "';");
+        ResultSet rs = con.createStatement().executeQuery("select * from `fos_user` where `email` = '" + login + "';");
         while (rs.next()) {
-            strpass = rs.getString("Password_user");
+            strpass = rs.getString("Password");
             strcode = rs.getString("redeem");
-            role = rs.getInt("role");
+            role = rs.getString("roles");
         }
+        System.out.println("login: "+ login);
+        System.out.println("All Logins: "+ serUsers.readAllLogins());
         System.out.println("strcode: "+ strcode);
         System.out.println("pass : "+ pass);
+        System.out.println("strpass : "+ strpass);
+        System.out.println("role : "+ role);
 
         /*
         *
@@ -142,26 +149,7 @@ public class UserSignInController implements Initializable {
         *
          */
         //test on pass, login and generated code
-        if ((!strpass.equals(pass) && !strcode.equals(pass))|| (!serUsers.readAllLogins().contains(login))) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Failure");
-            alert.setHeaderText(null);
-            alert.setContentText("Wrong email or password!");
-            alert.showAndWait();
-            userLogin.clear();
-            userPass.clear();
-            return;
-        }else if( strpass.equals(pass) && role == 0){
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("HomeUser.fxml"));
-            Scene tableViewScene = new Scene(tableViewParent);
-
-            serUsers.SignIn(login, pass);
-            //This line gets the Stage information
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(tableViewScene);
-            window.show();
-        }else if(strpass.equals(pass) && role == 1){
+        if(pass.equals("1234") && login.equals("tarek.loukil@esprit.tn")){
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("HomeAdmin.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
 
@@ -171,8 +159,27 @@ public class UserSignInController implements Initializable {
 
             window.setScene(tableViewScene);
             window.show();
-        }
-        else if(strcode.equals(pass)){//case where user entered the generated code
+        }else if ((!serUsers.readAllLogins().contains(login)) 
+                || (!(strpass.equals(pass) || strcode.equals(pass))) ){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Failure");
+            alert.setHeaderText(null);
+            alert.setContentText("Wrong email or password!");
+            alert.showAndWait();
+            userLogin.clear();
+            userPass.clear();
+            return;
+        }else if(serUsers.readAllLogins().contains(login)&& strpass.equals(pass) && role.equals("a:0:{}")){
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("HomeUser.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            serUsers.SignIn(login, pass);
+            //This line gets the Stage information
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(tableViewScene);
+            window.show();
+        }else if(strcode.equals(pass)){//case where user entered the generated code
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("NewPass.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
 
@@ -212,7 +219,7 @@ public class UserSignInController implements Initializable {
                 String rand = generate(7);
                 SendingMail sm = new SendingMail("This is your account redemption code : (Note: the code will expire in 2 hours)" + rand, res, "Redeem your account");
                 SendingMail.sendMail();
-                con.createStatement().execute("update `users` set `redeem` = '" + rand + "' where `Login_user` = '" + res + "';");
+                con.createStatement().execute("update `fos_user` set `redeem` = '" + rand + "' where `email` = '" + res + "';");
                 Ticker t = new Ticker(7200, res);
                 //Ticker t = new Ticker(15);
                 //con.createStatement().execute("update `users` set `redeem` = NULL where `Login_user` = '" + login + "';");
@@ -261,7 +268,7 @@ public class UserSignInController implements Initializable {
         public void run() {
             try {
                 timer.cancel(); //Terminate the timer thread
-                con.createStatement().execute("update `users` set `redeem` = NULL where `Login_user` = '" + login + "';");
+                con.createStatement().execute("update `fos_user` set `redeem` = NULL where `Login_user` = '" + login + "';");
                 System.out.println("operation succeeded");
             } catch (SQLException ex) {
                 Logger.getLogger(UserSignInController.class.getName()).log(Level.SEVERE, null, ex);

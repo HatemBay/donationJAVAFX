@@ -5,7 +5,7 @@
  */
 package javafxapplication1;
 
-import com.donation.Service.ServiceUsers;
+import com.donation.Service.ServiceFos;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -42,7 +42,7 @@ public class HomeAdminController implements Initializable {
     @FXML
     private Button logout;
     
-    ServiceUsers SU = new ServiceUsers();
+    ServiceFos SU = new ServiceFos();
 
     /**
      * Initializes the controller class.

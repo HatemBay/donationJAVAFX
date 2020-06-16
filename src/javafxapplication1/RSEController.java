@@ -7,9 +7,9 @@ package javafxapplication1;
 
 import com.donation.Entite.View;
 import com.donation.Service.ServiceAssociation;
-import com.donation.Service.ServiceImage;
-import com.donation.Service.ServiceUsers;
-import static com.donation.Service.ServiceUsers.currentUser;
+import com.donation.Service.ServiceImagej;
+import com.donation.Service.ServiceFos;
+import static com.donation.Service.ServiceFos.currentUser;
 import com.donation.Service.ServiceView;
 import com.donation.Utils.DataBase;
 import java.awt.image.BufferedImage;
@@ -87,10 +87,10 @@ public class RSEController implements Initializable {
     Clipboard clipboard = Clipboard.getSystemClipboard();
     ClipboardContent content = new ClipboardContent();
 
-    ServiceUsers serUsers = new ServiceUsers();
+    ServiceFos serUsers = new ServiceFos();
     ServiceAssociation SA = new ServiceAssociation();
     ServiceView serView = new ServiceView();
-    ServiceImage serImage = new ServiceImage();
+    ServiceImagej serImage = new ServiceImagej();
     private final Connection con;
     private Statement ste;
     @FXML
@@ -133,9 +133,9 @@ public class RSEController implements Initializable {
 
                 String text = rsView.getString("Text");
                 
-                ResultSet rsImage = con.createStatement().executeQuery("select * from `image` where Id_view = " 
+                ResultSet rsImage = con.createStatement().executeQuery("select * from `imagej` where Id_view = " 
                         + rsView.getInt("Id_view") + ";");
-               ResultSet rsImage2 = con.createStatement().executeQuery("select count(*) from `image` where Id_view = '" 
+               ResultSet rsImage2 = con.createStatement().executeQuery("select count(*) from `imagej` where Id_view = '" 
                         + rsView.getInt("Id_view") + "';");
                 while(rsImage2.next()){
                     size =  rsImage2.getInt(1);
@@ -301,7 +301,7 @@ public class RSEController implements Initializable {
         
         
         //making view:
-        View v = new View(currentUser.getId_user(), postText.getText());
+        View v = new View(currentUser.getId(), postText.getText());
         ResultSet rs = con.createStatement().executeQuery("select * from `view` where `Id_view` = (SELECT MAX(Id_view) FROM view);");
         while (rs.next())
             idv = rs.getInt("Id_view");
@@ -359,7 +359,7 @@ public class RSEController implements Initializable {
                     FileInputStream inputStream = null;
                     inputStream = new FileInputStream(ff);
                     ste = con.createStatement();
-                    statement = con.prepareStatement("INSERT INTO `donation`.`image` (`Id_image`, `Id_view`, `Name`)"
+                    statement = con.prepareStatement("INSERT INTO `donation`.`imagej` (`Id_image`, `Id_view`, `Name`)"
                     + "VALUES (?, ?, ?);");
                     statement.setNull(1, java.sql.Types.INTEGER);
                     statement.setInt(2, idv+1);

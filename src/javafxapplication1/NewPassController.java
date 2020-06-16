@@ -5,7 +5,7 @@
  */
 package javafxapplication1;
 
-import com.donation.Service.ServiceUsers;
+import com.donation.Service.ServiceFos;
 import com.donation.Utils.DataBase;
 import java.io.IOException;
 import java.net.URL;
@@ -36,7 +36,7 @@ public class NewPassController implements Initializable {
     @FXML
     private PasswordField confirm;
     
-    ServiceUsers serUsers = new ServiceUsers();
+    ServiceFos serUsers = new ServiceFos();
     private final Connection con;
     private Statement ste;
     
@@ -90,7 +90,7 @@ public class NewPassController implements Initializable {
                 return;
             }else{
             con.createStatement().executeUpdate("UPDATE `donation`.`users` SET `Password_user` = '" + newPass.getText() + "' and redeem = NULL WHERE `Id_user` = " + 
-                    ServiceUsers.currentUser.getId_user() + ";");
+                    ServiceFos.currentUser.getId() + ";");
             
         
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("Home.fxml"));

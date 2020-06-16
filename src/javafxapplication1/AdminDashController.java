@@ -5,17 +5,15 @@
  */
 package javafxapplication1;
 
+import com.donation.Entite.Fos_user;
 import com.donation.Entite.Users;
-import com.donation.Service.ServiceUsers;
+import com.donation.Service.ServiceFos;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -54,7 +52,7 @@ import javafx.stage.Stage;
 public class AdminDashController implements Initializable {
 
     
-    ServiceUsers serUsers = new ServiceUsers();
+    ServiceFos serUsers = new ServiceFos();
 
     /**
      * Initializes the controller class.
@@ -67,7 +65,7 @@ public class AdminDashController implements Initializable {
     @FXML
     private ImageView menu;
 
-    ServiceUsers SU = new ServiceUsers();
+    ServiceFos SU = new ServiceFos();
     @FXML
     private TextField name;
     @FXML
@@ -121,8 +119,8 @@ public class AdminDashController implements Initializable {
             
             
             modifform.setVisible(false);
-            List<Users> associations = SU.readAll();
-            Users connected = SU.searchByIdU(SU.currentUser.getId_user());
+            List<Fos_user> associations = SU.readAll();
+            Fos_user connected = SU.searchByIdU(SU.currentUser.getId());
             
             afficher(associations);
             
@@ -132,12 +130,12 @@ public class AdminDashController implements Initializable {
     }    
 
 
-    private void afficher(List<Users> associations) throws SQLException{
-        Users connected = SU.searchByIdU(SU.currentUser.getId_user());
+    private void afficher(List<Fos_user> associations) throws SQLException{
+        Fos_user connected = SU.searchByIdU(SU.currentUser.getId());
         associationcontainer.getChildren().clear();
         
         for (int i = 0; i < associations.size(); i++) {
-            Users actuel = associations.get(i);
+            Fos_user actuel = associations.get(i);
             Pane single = new Pane();
             single.setPrefHeight(150);
             single.setPrefWidth(547);
@@ -150,7 +148,7 @@ public class AdminDashController implements Initializable {
             name.setLayoutX(166);
             name.setLayoutY(20);
             name.setStyle("-fx-font-size :18");
-            name.setText(actuel.getFirst_name() + " " +actuel.getLast_name());
+            name.setText(actuel.getUsername());
             
             Label tel = new Label();
             tel.setPrefHeight(27);
@@ -225,8 +223,8 @@ public class AdminDashController implements Initializable {
     @FXML
     private void searchAction(KeyEvent event) throws SQLException {
         String m = search.getText();
-        ArrayList<Users> a = (ArrayList<Users>) SU.SearchUsers(m);
-        ObservableList<Users> obs = FXCollections.observableArrayList(a);
+        ArrayList<Fos_user> a = (ArrayList<Fos_user>) SU.SearchFos_user(m);
+        ObservableList<Fos_user> obs = FXCollections.observableArrayList(a);
         afficher(obs);
     }
 

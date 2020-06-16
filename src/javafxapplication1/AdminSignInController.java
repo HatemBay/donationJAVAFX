@@ -101,9 +101,10 @@ public class AdminSignInController implements Initializable {
         String pass = adminPass.getText();
         String strpass = "";
             
-        ResultSet rs = con.createStatement().executeQuery("select * from `admin` where `Login_admin` = '" + login + "';");
+        ResultSet rs = con.createStatement().executeQuery("select * from `fos_user` where `email` = 'tarek.loukil@esprit.tn';");
         while(rs.next()){
-            strpass =(String) rs.getString("Password_admin"); 
+            //strpass =(String) rs.getString("Password_admin"); 
+            strpass =(String) rs.getString("1234"); 
         }
         
            /*
@@ -159,7 +160,7 @@ public class AdminSignInController implements Initializable {
                 String rand = generate(7);
                 SendingMail sm = new SendingMail("your password has been reset  , you can now login  with :" + rand, res, "Password reset");
                 SendingMail.sendMail();
-                con.createStatement().execute("update `admin` set `Password_admin` = '" + rand + "' where `Login_admin` = '" + login + "';");
+                con.createStatement().execute("update `fos_user` set `Password` = '" + rand + "' where `email` = 'tarek.loukil@esprit.tn';");
                 emailSent.setText("Check your email.");
             } else {
                 emailSent.setText("Entered email does not exist.");
